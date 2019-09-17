@@ -1,5 +1,4 @@
 require './test_helper'
-require './lib/enigma'
 require './lib/encrypt'
 
 class EncryptTest < Minitest::Test
@@ -15,6 +14,11 @@ class EncryptTest < Minitest::Test
   def test_encrypt_message
 
     assert_equal "keder", @encrypt.encrypt_message("Hello", "02715", "040895")
+  end
+
+  def test_encrypt_message_characters
+
+    assert_equal "keder!", @encrypt.encrypt_message("Hello!", "02715", "040895")
   end
 
 

@@ -30,7 +30,9 @@ class EnigmaTest < Minitest::Test
       date: "170919"
     }
 
-    assert_equal expected, @enigma.encrypt("hello")
+    DateGenerator.stubs(:create_date).returns "170919"
+    
+    assert_equal expected, @enigma.encrypt("hello", "02715")
   end
 
   def test_encrypt_only_message
@@ -42,7 +44,7 @@ class EnigmaTest < Minitest::Test
 
     NumberGenerator.stubs(:create_key).returns "02715"
 
-    assert_equal expected, @enigma.encrypt("hello", "02715")
+    assert_equal expected, @enigma.encrypt("hello")
   end
 
 end
