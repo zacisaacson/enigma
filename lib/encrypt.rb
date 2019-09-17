@@ -1,16 +1,22 @@
+require './module/encryptable'
+
 class Encrypt
+  include Encryptable
 
-
-def number_breakdown(number)
-  a_key = number[0][1].to_i
-  b_key = number[1][2].to_i
-  c_key = number[2][3].to_i
-  d_key = number[3][4].to_i
-
-  [a_key, b_key, c_key, d_key]
-end
-
-
-
-
+  def encrypt_message(message, key, date)
+    characters = ("a".."z").to_a << " "
+    shift = number_shift(key, date)
+    split_message = message_breakdown(message)
+    new_message = []
+    split_message.map do |letter|
+      if characters.include?(letter)
+        new_character = characters.rotate(characters.index(letter) + shift[0])
+        new_message << new_character[0]
+        shift.rotate!
+      else
+        new_message << letter
+      end
+    end
+    new_message.join
+  end
 end
