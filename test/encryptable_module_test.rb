@@ -14,7 +14,11 @@ class EncryptableTest < Minitest::Test
   end
 
   def test_shift
-    assert_equal [3, 27, 73, 20], shift("02715", "040895")
+    assert_equal [3, 27, 73, 20], number_shift("02715", "040895")
+  end
+
+  def test_message_shift
+    assert_equal ["h", "e", "l", "l", "o"], message_breakdown("Hello")
   end
 
 
