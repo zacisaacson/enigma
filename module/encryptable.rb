@@ -29,7 +29,6 @@ module Encryptable
     shift << (number_key[2].to_i + date_offset[2].to_i)
     shift << (number_key[3].to_i + date_offset[3].to_i)
 
-    shift
   end
 
   def message_breakdown(message)
