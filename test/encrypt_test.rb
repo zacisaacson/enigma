@@ -7,4 +7,5 @@ class EncryptTest < Minitest::Test
 
 
 
+
 end
