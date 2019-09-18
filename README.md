@@ -1,5 +1,4 @@
-# enigma
-### Self Evaluation
+# Enigma - Self Evaluation
 
 ## Functionality - 3
 Enigma class with encrypt and decrypt methods and command line interfaces successfully implemented.

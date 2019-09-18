@@ -19,4 +19,5 @@ class Encrypt
     end
     new_message.join
   end
+  
 end
