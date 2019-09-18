@@ -3,13 +3,11 @@ require './lib/number_generator'
 
 class NumberGeneratorTest < Minitest::Test
 
+  def test_random_number
+    NumberGenerator.stubs(:create_key).returns "02715"
 
-#Mock and Stubs for create_key
-def test_random_number
-
-  assert_equal 5, Number_Generator.create_key.length
-end
-
-
+    assert_equal "02715", NumberGenerator.create_key
+    assert_equal 5, NumberGenerator.create_key.length
+  end
 
 end

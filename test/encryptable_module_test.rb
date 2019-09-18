@@ -1,7 +1,6 @@
 require './test_helper'
 require './module/encryptable'
 
-
 class EncryptableTest < Minitest::Test
   include Encryptable
 
@@ -20,7 +19,5 @@ class EncryptableTest < Minitest::Test
   def test_message_shift
     assert_equal ["h", "e", "l", "l", "o"], message_breakdown("Hello")
   end
-
-
 
 end

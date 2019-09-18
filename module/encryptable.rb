@@ -1,6 +1,5 @@
 module Encryptable
 
-
   def number_breakdown(key)
     a_key = key[0..1]
     b_key = key[1..2]
@@ -28,7 +27,6 @@ module Encryptable
     shift << (number_key[1].to_i + date_offset[1].to_i)
     shift << (number_key[2].to_i + date_offset[2].to_i)
     shift << (number_key[3].to_i + date_offset[3].to_i)
-
   end
 
   def message_breakdown(message)
