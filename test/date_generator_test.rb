@@ -3,13 +3,11 @@ require './lib/date_generator'
 
 class DateGeneratorTest < Minitest::Test
 
-def test_date_generator
+  def test_date_generator
 
-  DateGenerator.stubs(:create_date).returns "140919"
+    DateGenerator.stubs(:create_date).returns "140919"
 
-  assert_equal "140919", DateGenerator.create_date
-end
-
-
+    assert_equal "140919", DateGenerator.create_date
+  end
 
 end

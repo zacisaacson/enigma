@@ -3,10 +3,10 @@ require './module/encryptable'
 class Decrypt
   include Encryptable
 
-  def decrypt_message(message, key, date)
+  def decrypt_message(ciphertext, key, date)
     characters = ("a".."z").to_a << " "
     shift = number_shift(key, date)
-    split_message = message_breakdown(message)
+    split_message = message_breakdown(ciphertext)
     new_message = []
     split_message.map do |letter|
       if characters.include?(letter)
@@ -19,6 +19,5 @@ class Decrypt
     end
     new_message.join
   end
-
 
 end

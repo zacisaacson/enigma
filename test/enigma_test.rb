@@ -12,7 +12,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-
   def test_encryption
     expected = {
       encryption: "keder ohulw",
@@ -31,7 +30,7 @@ class EnigmaTest < Minitest::Test
     }
 
     DateGenerator.stubs(:create_date).returns "170919"
-    
+
     assert_equal expected, @enigma.encrypt("hello", "02715")
   end
 
@@ -45,6 +44,29 @@ class EnigmaTest < Minitest::Test
     NumberGenerator.stubs(:create_key).returns "02715"
 
     assert_equal expected, @enigma.encrypt("hello")
+  end
+
+  def test_decryption
+    expected = {
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+    }
+
+    assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
+  end
+
+  def test_decryption_without_date
+    encrypted = @enigma.encrypt("hello world", "02715", "040895")
+    expected = {
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+    }
+
+    DateGenerator.stubs(:create_date).returns "040895"
+
+    assert_equal expected, @enigma.decrypt(encrypted[:encryption], "02715")
   end
 
 end

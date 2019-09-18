@@ -21,7 +21,4 @@ class EncryptTest < Minitest::Test
     assert_equal "keder!", @encrypt.encrypt_message("Hello!", "02715", "040895")
   end
 
-
-
-
 end
